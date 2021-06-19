@@ -1,8 +1,8 @@
 export const setPlaceholderText = () => {
   const input = document.getElementById("searchBar__text");
-  window.innerWidth < 400
-    ? (input.placeholder = "City, State, Country")
-    : (input.placeholder = "City, State, Country or Zip Code");
+  window.innerWidth < 400 ?
+    (input.placeholder = "City, State, Country") :
+    (input.placeholder = "City, State, Country or Zip Code");
 };
 
 export const addSpinner = (element) => {
@@ -43,13 +43,13 @@ const updateWeatherLocationHeader = (message) => {
       return msg.replace(":", ": ");
     });
     const lat =
-      mapArray[0].indexOf("-") === -1
-        ? mapArray[0].slice(0, 10)
-        : mapArray[0].slice(0, 11);
+      mapArray[0].indexOf("-") === -1 ?
+      mapArray[0].slice(0, 10) :
+      mapArray[0].slice(0, 11);
     const lon =
-      mapArray[1].indexOf("-") === -1
-        ? mapArray[1].slice(0, 11)
-        : mapArray[1].slice(0, 12);
+      mapArray[1].indexOf("-") === -1 ?
+      mapArray[1].slice(0, 11) :
+      mapArray[1].slice(0, 12);
     h1.textContent = `${lat} • ${lon}`;
   } else {
     h1.textContent = message;
@@ -161,7 +161,8 @@ const createCurrentConditionsDivs = (weatherObj, unit) => {
   const temp = createElem(
     "div",
     "temp",
-    `${Math.round(Number(weatherObj.current.temp))}°`
+    `${Math.round(Number(weatherObj.current.temp))}°`,
+    tempUnit
   );
   const properDesc = toProperCase(weatherObj.current.weather[0].description);
   const desc = createElem("div", "desc", properDesc);
